@@ -13,7 +13,6 @@ The purpose of this script is to copy required software into the worker nodes du
 set -e
 
 # Data and Application directories in the worker nodes.
-
 ```
 Versions of tools (Bowtie, Samtools, Source_bucket)
 
@@ -31,6 +30,14 @@ append ```alias``` to ```~./bash_profile```, set up bash_profile
 
 ```# Flint Project Dir``` (create directory for dropping source code)
 
-```# Python libs``` (install python library as part of Cluster provisioning)
+- line 110,111
 
-```# Spark Conf ```(copy the custom Spark configuration, copy the conf from S3 into the local filesystem)
+```# Python libs``` (install python library as part of Cluster provisioning)
+```
+sudo pip install pathlib2
+sudo pip install biopython
+```
+
+```# Spark Conf ```(copy the custom Spark configuration, copy the conf from S3 into the local filesystem
+
+``` # Copy Conf from S3 into the local filesystem```
