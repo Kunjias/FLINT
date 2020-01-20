@@ -1,13 +1,13 @@
 # provision_index.py
 
 latest commit comment from original repository:
+
 ```
 Bringing the index provisioning script up to par with the latest release.
 
 OBJECTIVE:
 The purpose of this program is to copy the Bowtie2 index to all the worker nodes in the cluster in parallel, 
 so that the index is not copied sequentially and takes a lot of time.
-
 
 Required Dependencies:
 ```
@@ -60,11 +60,50 @@ def main(args):
 ``` conf.set("conf spark.locality.wait", "1s")```
 - line 88-90 (convert local time to specified format, print ```Configuring Spark...```)
 
-- line 93 (```# Initialize the Spark Context for this run.```)
+- line 93 (```# Initialize the Spark Context for this run.```) \
 ``` sc = SparkContext(conf=conf) ```
 
+- line 95 (record time in seconds since the epoch as ```start_time```) \
+`start_time = time.time()`
 
-- line 167 (```# Spark Stop, shunt down the cluster once everything completes.```)
+- line 97-100 (convert local time to specified format, print `Starting Index Copy from: `)
+    - at line 99 (print `index_location_s3`, [`args.bowtie2_index` without spaces])
+
+- line 102 (`#  Prepare the locations that will be copied.`)
+- line 103 (construct an empty list of `list_of_index_shards`) \
+`list_of_index_shards = []`
+- line 104 (set a `range_end` number of `number_of_index_shards`+1 to loop through the shards)
+    - as range function does not include the end \
+`range_end = number_of_index_shards + 1`
+
+- line 105-107 (a loop to append new index shards to `list_of_index_shards`) 
+    - each new index is formed by appending bowtie2_index with partition_id in string format increasing from 1 to the number of index shards 
+```
+for partition_id in range(1, range_end):
+    s3_location = index_location_s3 + "/" + str(partition_id)
+    list_of_index_shards.append(s3_location)
+```
+- line 109 (printing current time to display `Index Shards to Copy:`)
+
+```print("[ " + time.strftime('%d-%b-%Y %H:%M:%S', time.localtime()) + " ] Index Shards to Copy:")```
+
+- line 111,112 (a loop to print out all elements of `list_of_index_shards`)
+```
+for location in list_of_index_shards:
+    print(location)
+```
+- line 114 (print current time converted to desired format after printing each one of the index shards)
+    - *day of month as a decimal*
+    - *number-locale's abbreviated month name-year without century as a decimal number*
+    - *Hour(24-hour clock) as a decimal number*
+    - *Minute as a decimal number* 
+    - *Second as a decimal number* 
+ 
+```print("[ " + time.strftime('%d-%b-%Y %H:%M:%S', time.localtime()) + " ] ")```
+
+- line 116
+
+- line 167 (```# Spark Stop, shut down the cluster once everything completes.```)
 - line 170-196 (copy_index_to_worker function)
 - line 204-205 (``` # Init, App Initializer ```)
 - line 209 (``` # End of Line ```)
