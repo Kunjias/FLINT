@@ -101,7 +101,29 @@ for location in list_of_index_shards:
  
 ```print("[ " + time.strftime('%d-%b-%Y %H:%M:%S', time.localtime()) + " ] ")```
 
-- line 116
+- line 116 (create distributed dataset to be operated in parallel) \
+`index_shards = sc.parallelize(list_of_index_shards)`
+
+- line 117 (commented out,reshuffling the `index_shards` dataset) \
+`# index_shards = index_shards.repartition(number_of_index_shards)`
+
+- line 119-120 (print localtime in desired format along with number of RDD partitions in string format)
+```
+print("[ " + time.strftime('%d-%b-%Y %H:%M:%S', time.localtime()) + " ] No. RDD Partitions: " +
+          str(index_shards.getNumPartitions()))
+```
+
+- line 122-123 (print localtime along with `Starting to copy...`)
+- line 129 (` # acknowledge_RDD will dispatch the "copy_index_to_worker()" function to all the workers `)
+    - `via the "mapPartitions()" function` \
+`acknowledge_RDD = index_shards.mapPartitions(copy_index_to_worker)`
+
+- line 135,136,137 \
+   `acknowledge_list = acknowledge_RDD.collect()` (return elements of collected responses as an array) \
+   `acknowledge_list.sort()` (sort the list of responses collected) \
+   `number_of_acknowledgements = len(acknowledge_list)` (count the length of list)
+
+- line 140-143 (Print out date-time with `No. of Workers that acknowledged`)
 
 - line 167 (```# Spark Stop, shut down the cluster once everything completes.```)
 - line 170-196 (copy_index_to_worker function)
