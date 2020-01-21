@@ -125,6 +125,8 @@ print("[ " + time.strftime('%d-%b-%Y %H:%M:%S', time.localtime()) + " ] No. RDD 
 
 - line 140-143 (Print out date-time with `No. of Workers that acknowledged`)
 
+- line 145-147 (Condition loop to print out each acknowledgement in acknowledge_list when `args.verbose` is true)
+
 - line 167 (```# Spark Stop, shut down the cluster once everything completes.```)
 - line 170-196 (copy_index_to_worker function)
 - line 204-205 (``` # Init, App Initializer ```)
