@@ -125,9 +125,65 @@ print("[ " + time.strftime('%d-%b-%Y %H:%M:%S', time.localtime()) + " ] No. RDD 
 
 - line 140-143 (Print out date-time with `No. of Workers that acknowledged`)
 
-- line 145-147 (Condition loop to print out each acknowledgement in acknowledge_list when `args.verbose` is true)
+- line 145-152 (Condition loop of `args.verbose`)
+    - When true, print out each acknowledgement from the acknowledge_list.
+    - When true, print the `Duplicate Worker IPs` for those with more than one count in the ackowledge_list.
+    
+```
+    if args.verbose:
+        for ack in acknowledge_list:
+            print(ack)
 
-- line 167 (```# Spark Stop, shut down the cluster once everything completes.```)
+        print("[ " + time.strftime('%d-%b-%Y %H:%M:%S', time.localtime()) + " ] ")
+        print("[ " + time.strftime('%d-%b-%Y %H:%M:%S', time.localtime()) + " ] Duplicate Worker IPs:")
+
+        print [item for item, count in collections.Counter(acknowledge_list).items() if count > 1]
+```
+
+- line 155-156 (define `end_time` and `run_time` which is the difference between `end_time` and `start_time`)
+```
+    end_time = time.time()
+    run_time = end_time - start_time
+```
+
+- line 158-162 (print local time, run_time to microsecond resolution as `Index_copy_time`, and `Done`)
+
+- line 167 (`# Spark Stop, shut down the cluster once everything completes.`) \
+`sc.stop()`
+
 - line 170-196 (copy_index_to_worker function)
-- line 204-205 (``` # Init, App Initializer ```)
+```
+def copy_index_to_worker(iterator):
+    """
+    Function that runs on all the Worker nodes. It will copy the Index from the specified location into the worker's
+    local filesystem.
+    Args:
+        iterator:
+    Returns:
+    """
+```
+- line 180 (construct an empty list of `return_data` ) \
+`return_data = []`
+
+- line 182 (obtain the `worker_node_ip` from "hostname" as a string without spaces)
+
+- line 184 (define `local_index_path`)
+`local_index_path = "/mnt/bio_data/index"`
+
+- line 186-184 (loop through the iterator input)
+- line 188 (copy file from s3 to local path)
+    - define `aws_copy_command` by appending `s3_location` and `local_index_path` to the aws s3 cp command
+- line 190 (define `aws_process` through `Popen`)
+     - Reformat `aws_copy_command` using `shlex.split`
+     - `stdout` and `stderr` set to `PIPE` to create new pipe to the child
+- line 191 (define `stdout` and `stderr` as standard output data and standard error data returned by `communicate`)
+    - `communicate()` is not taking any input parameter, so no data should be sent to the child
+- line 192-194 (append `worker_node_ip`. standard error `stderr` and `AWS COMMAND` to `return_data`, then returned by the function)
+
+- line 204-205 (``` # Init, App Initializer ```, check if a module is being imported or not.)
+
+```
+if __name__ == "__main__":
+    main(sys.argv[1:])
+```
 - line 209 (``` # End of Line ```)
