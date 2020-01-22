@@ -153,5 +153,21 @@ def main(args):
     - else:
         - lookup `taxa_id` and `organism_name` from `annotations_dictionary`
         - add the `taxa_id`, `gca_id`,`organism_name` and overall_abundance level of 0 to the `output_list`
-        
+
+``` Local Output ```
+- line 472-481 (if save_to_local)
+    - line 473-475 (if verbose_output, print local time and `Saving to local filesystem...`)
+    - line 477-481 (write from output_list to writer line by line)
+    
+``` S3 Output ```
+- line 485-499 (save output file to specified S3 bucket)
+
+```Wrap-up```
+- line 504-511 (record start-time, end_time, run_time; print `Analysis Run Time` and `Complete`)
+
+```Spark Stop```
+- line 517 (shut down the cluster)
+
+```App Initializaer```
+- line 525-526
     
