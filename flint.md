@@ -100,4 +100,11 @@ def main(args):
     
  - line 311-316 (if save_to_local)
     - define `local_output_directory = output_directory + "/" + sampleID`
-
+    - line 313-316 (if path to local_output_directory does not exist)
+        - print localtime + `"Output directory does not exist. Creating..."`
+        - make directory for `local_output_directory`
+    - line 318-321 (if keep_shard_profiles)
+        - define `local_shard_profile_output_dir = local_output_directory + "/shard_profiles"`
+        - line 320-321 (if path to local_shard_profile_output_dir does not exist)
+            - make directory for `local_shard_profile_output_dir`
+    - line 323 (define `output_file = local_output_directory + "/" + output_file_name)
