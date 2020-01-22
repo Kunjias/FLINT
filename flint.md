@@ -135,5 +135,23 @@ def main(args):
     - `sj.dispatch_stream_from_kinesis` (function from `modules/spark_jobs.py`)
     - print error e as string when ValueError is found
     
-    
+ ``` Coalesced Output Reports ```
+ - line 425-427 (print local time and `Writing Coalesced Output Reports.`)
+ - line 434-437 (sort overall abundace, report with descending order with most prominent Strains on top)
+ 
+ - line 444-453 (if gca_id in annotations_dictionary)
+    - get corresponding `taxa_id` and `organism_name` from the annotations_dictionary
+    - if a `gca_id` is contained in the `annotations_dictionary`:
+      - add `taxa_id`, `gca_id`, `organism_name` and `OVERALL_ABUNDANCES` to the `output_list`
+      - map this strain's `gca_id` to a flag
+    - else:
+       - add `OVERALL_ABUNDANCES` to the `output_list`
+ 
+ - line 455-465 (if report_all)
+    - loop through `gca_id` in `annotations_dictionary`
+    - `if gca_id in seen_strains:`, continue for next one
+    - else:
+        - lookup `taxa_id` and `organism_name` from `annotations_dictionary`
+        - add the `taxa_id`, `gca_id`,`organism_name` and overall_abundance level of 0 to the `output_list`
+        
     
