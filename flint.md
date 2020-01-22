@@ -108,3 +108,32 @@ def main(args):
         - line 320-321 (if path to local_shard_profile_output_dir does not exist)
             - make directory for `local_shard_profile_output_dir`
     - line 323 (define `output_file = local_output_directory + "/" + output_file_name)
+    
+```#Spark```
+- line 333 (Define `APP_NAME = "Flint - " + str(sampleID)`, name for label that appears in EMR and Spark dashboard output.)
+- line 336-341 (setting Spark configurations)
+- line 344-346 (print `Batch Duration` and `Configuring Spark`)
+- line 349-354 (initialize Spark context，addPyFile from modules)
+    - `'modules/spark_jobs.py'`
+    - `'modules/flint_sample_downloads.py'`
+    - `'modules/flint_utilities.py'`
+    - `'modules/flint_bowtie2_mapping.py'`
+    
+- line 357 (add DNA mapping resources)
+    - `'services/align_service.py'`
+    
+- line 361 (initialize Spark Streaming context)
+    - `ssc=StreamingContext(sc,batch_duration)`
+    
+``` Stream from a Directory ```
+- line 364-386 (if use_streaming_dir)
+    - `sj.dispatch_stream_from_dir` (function from `modules/spark_jobs.py`)
+    - print error e as string when ValueError is found
+    
+``` Stream from a Kinesis source ```
+- line 390-415 (if use_streaming_kinesis)
+    - `sj.dispatch_stream_from_kinesis` (function from `modules/spark_jobs.py`)
+    - print error e as string when ValueError is found
+    
+    
+    
