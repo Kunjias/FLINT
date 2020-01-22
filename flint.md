@@ -5,7 +5,7 @@ latest commit comment from original repository:
 Bringing the index provisioning script up to par with the latest release.
 
 Purpose of the program: create the primary Spark driver application for the implementation 
-of Flint metagenomic profilingand analysis framework.
+of Flint metagenomic profiling and analysis framework.
 
 ```
 
