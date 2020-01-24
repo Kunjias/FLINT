@@ -1,4 +1,5 @@
 # converter-fastq-tab5.py
 ``` 
-Tab-5 Initial Commit.
+The purpose of this file is to merge pairs of paired-end reads stored in two (2) files into one (1) single
+#   file in "tab5" format. 
 ```
