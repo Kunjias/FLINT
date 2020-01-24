@@ -2,8 +2,8 @@
 
 ```
 #   OBJECTIVE:
-#	The purpose of this script is to create the necessary partition indexing scripts for the High Performance
-#	Cluster.  The Cluster runs the LSF scheduler, so the scripts created will have the necessary bsub submission
+#	The purpose of this script is to create the necessary partition indexing scripts for the High Performance Cluster.  
+#	The Cluster runs the LSF scheduler, so the scripts created will have the necessary bsub submission
 #	headers.
 ```
 
