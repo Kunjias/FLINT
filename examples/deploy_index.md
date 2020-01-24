@@ -30,6 +30,6 @@ The purpose of this script is to act as a basic driver of the index provisioning
 
 - line 66, 68, 70 (``` # The YARN queue in which the job will run on.```)
 
-- line 79-88 (``` # Submit the script to the Spark cluster using "bin/spark-submit".)
+- line 79-88 (``` # Submit the script to the Spark cluster using "bin/spark-submit".```)
 
 - line 91-94 (Print date-time and ```Test Finished.```)
