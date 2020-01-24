@@ -1,4 +1,4 @@
-#copy-index-to-workers.txt
+# copy-index-to-workers.txt
 
 latest commit comment from original repository:
 ```
