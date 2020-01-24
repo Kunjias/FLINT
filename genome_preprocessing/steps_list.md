@@ -49,7 +49,7 @@
 6. indexing
 - index_partitions_ensembl.sh
   - The purpose of this script is to index a collection of bacterial genomes stored in a fasta file with the
-  #	bowtie2-build index builder program.
+  	bowtie2-build index builder program.
   
 7. show_statistics
 - get_statistics.py
