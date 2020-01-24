@@ -34,17 +34,17 @@
     - The files to concatenate are FASTA files for each genome, and the result will be one large FASTA file with all the sequences in them.
     
     1)	Clean the sequence headers of the FASTA files in the Ensembl Genome Index.
-# 	    The sequence headers in their initial format are useless for mapping purposes as they do not have a format
-# 	    that can be easily parsed by the Reducer steps in the main Flint MapReduce pipeline.
-# 	2)	Create annotation file with all sequence headers.
+ 	    The sequence headers in their initial format are useless for mapping purposes as they do not have a format
+ 	    that can be easily parsed by the Reducer steps in the main Flint MapReduce pipeline.
+ 	2)	Create annotation file with all sequence headers.
 
 5. partitioning
   - create_partitions_ensembl.sh
     - act as a basic test for the 'split_fasta_file.py' utility.
   - split_fasta_file.py
     -  The purpose of this program is to split a large fasta file into a user-defined number of partitions so that
-#       the resulting smaller files can be indexed by a program such as Bowtie2, or kallisto.  Note that the number of
-#       partitions must be a multiple of 2, since the program uses a binary-partitioning strategy.
+       the resulting smaller files can be indexed by a program such as Bowtie2, or kallisto.  Note that the number of
+       partitions must be a multiple of 2, since the program uses a binary-partitioning strategy.
 
 6. indexing
 - index_partitions_ensembl.sh
