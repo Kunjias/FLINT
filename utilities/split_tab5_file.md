@@ -1,4 +1,4 @@
 # split_tab5_file.py
 ```
-Initial commit of script for splitting a TAB5 file
+The purpose of this program is to split a tab-5 formatted file of DNA sequencing reads into N-number of shards.
 ```
