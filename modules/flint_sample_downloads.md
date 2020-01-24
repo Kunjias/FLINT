@@ -1,5 +1,5 @@
 # flint_sample_downloads.py
 
 ```
-Test scripts initial commit
+The purpose of this file is to implement the sample download functions that are used by Flint.
 ```
