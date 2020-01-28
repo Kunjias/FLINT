@@ -21,6 +21,7 @@ Versions of tools (Bowtie, Samtools, Source_bucket)
 echo "" >> ~/.bash_profile
 echo "alias l='ls -lhF'" >> ~/.bash_profile
 ```
+
 - line 61,62 \
 append ```alias``` to ```~./bash_profile```, set up bash_profile
 
