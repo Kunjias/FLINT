@@ -1,9 +1,9 @@
 # bowtie2-hpc-indexing-template.sh
 
 ```
-#   OBJECTIVE:
-#	The purpose of this script is to serve as a template for the indexing of a collection of bacterial genomes using
-#   the bowtie2-build program.
+OBJECTIVE:
+The purpose of this script is to serve as a template for the indexing of a collection of bacterial genomes using
+the bowtie2-build program.
 ```
 
 - Starting...
