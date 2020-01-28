@@ -56,7 +56,7 @@ def main(args):
 
 ``` Properties for Streaming from a Directory ```
 
-- line 246-257(if use_streaming_dir,define the following 
+- line 246-257 (if use_streaming_dir,define the following 
     - batch_duration
     - app_name
     - output_directory
