@@ -10,15 +10,15 @@
   - The compressed files are in GZip format (.gz) and the gunzip utility is used to expand these.
   
 3. annotations
-  - ensembl_postprocessing_python 
-  - add_length_to_annotation
-  - add_strain_column
-      1) Add strain column to Ensembl lineage annotation file by merging lineage file with metadata from GenBank
-      2) Remove first word from the species name (redundant information - represent genus)
+  - ensembl_postprocessing_python
+  	- add_length_to_annotation
+	- add_strain_column
+	1) Add strain column to Ensembl lineage annotation file by merging lineage file with metadata from GenBank
+	2) Remove first word from the species name (redundant information - represent genus)
   - ensembl_lineage.sh
-    	1) 	Download metadata on the genomes provided by Ensembl Genomes.
-      2)	Metadate could be found on http://bacteria.ensembl.org/info/website/ftp/index.html
-    	3)	Create phylogenetic tree for all genomes in Ensembl database
+  	1) Download metadata on the genomes provided by Ensembl Genomes.
+      	2) Metadate could be found on http://bacteria.ensembl.org/info/website/ftp/index.html
+    	3) Create phylogenetic tree for all genomes in Ensembl database
   - ensembl_postprocessing.sh
       1) Adding the correct strain name column and remove the first word from the species name 
         (redundant information - represent genus)
