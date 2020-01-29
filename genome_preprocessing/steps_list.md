@@ -30,7 +30,7 @@
   	- Create lineage annotations for GB full database using summary file containing tax_id column
       
       
-4.fasta_concatenation
+4. fasta_concatenation
   - concatenate.py
     - concatenate a collection of genome files downloaded from the Ensembl Bacteria project website
      - ("http://bacteria.ensembl.org")
