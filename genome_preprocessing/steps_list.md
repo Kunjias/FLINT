@@ -56,8 +56,8 @@
   
 7. show_statistics
 - get_statistics.py
-  - The purpose of this script is to index a collection of bacterial genomes stored in a fasta file with the
-	  bowtie2-build index builder program.
+ - The purpose of the script is to show statistics.
+    (how many unique elements of each phylogenetic tree our database contains)
 - run_get_statistics.sh
   
   
