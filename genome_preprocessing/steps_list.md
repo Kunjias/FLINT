@@ -56,8 +56,8 @@
   
 7. show_statistics
 - get_statistics.py
- - The purpose of the script is to show statistics.
-    (how many unique elements of each phylogenetic tree our database contains)
+	- The purpose of the script is to show statistics.
+    	(how many unique elements of each phylogenetic tree our database contains)
 - run_get_statistics.sh
   
   
