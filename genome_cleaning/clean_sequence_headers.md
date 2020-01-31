@@ -6,7 +6,9 @@ latest comment from the original repository
 Genome cleaning initial commit.
 
 OBJECTIVE:
-The Purpose of this program is to clean the sequence headers of the FASTA files in the Ensembl Genome Index. The sequence headers in their initial format are useless for mapping purposes as they do not have a format that can be parsed by the Reducer steps in the main Flint MapReduce pipeline.
+The Purpose of this program is to clean the sequence headers of the FASTA files in the Ensembl Genome Index. 
+The sequence headers in their initial format are useless for mapping purposes as they do not have a format 
+that can be parsed by the Reducer steps in the main Flint MapReduce pipeline.
 ```
 Check python modules to ensure dependencies are installed (- BioPython).
 
